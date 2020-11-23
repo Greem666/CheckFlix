@@ -31,15 +31,4 @@ public class MovieDto {
 
     @JsonProperty("Poster")
     public String poster;
-
-    @Getter
-    public enum Types {
-        MOVIE("movie"), SERIES("series"), EPISODE("episode");
-
-        public final String label;
-
-        private Types(String label) {
-            this.label = label;
-        }
-    }
 }
