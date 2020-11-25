@@ -1,7 +1,6 @@
-package com.maciej.checkflix.omdb;
+package com.maciej.checkflix.clients;
 
 import com.maciej.checkflix.config.OmdbConfig;
-import com.maciej.checkflix.domain.omdb.MovieDto;
 import com.maciej.checkflix.domain.omdb.MovieNameSearchDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -9,8 +8,6 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor

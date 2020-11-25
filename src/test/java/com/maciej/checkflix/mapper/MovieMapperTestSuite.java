@@ -3,6 +3,7 @@ package com.maciej.checkflix.mapper;
 import com.maciej.checkflix.domain.omdb.Movie;
 import com.maciej.checkflix.domain.omdb.MovieDto;
 import com.maciej.checkflix.domain.omdb.Type;
+import com.maciej.checkflix.mapper.omdb.MovieMapper;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -14,8 +15,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

@@ -1,4 +1,4 @@
-package com.maciej.checkflix.repository;
+package com.maciej.checkflix.repository.omdb;
 
 import com.maciej.checkflix.domain.omdb.Movie;
 import org.springframework.data.repository.CrudRepository;

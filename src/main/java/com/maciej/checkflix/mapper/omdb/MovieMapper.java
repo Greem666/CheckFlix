@@ -1,4 +1,4 @@
-package com.maciej.checkflix.mapper;
+package com.maciej.checkflix.mapper.omdb;
 
 import com.maciej.checkflix.domain.omdb.Movie;
 import com.maciej.checkflix.domain.omdb.MovieDto;
