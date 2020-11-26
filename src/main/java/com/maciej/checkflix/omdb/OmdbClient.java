@@ -1,7 +1,7 @@
 package com.maciej.checkflix.omdb;
 
 import com.maciej.checkflix.config.OmdbConfig;
-import com.maciej.checkflix.domain.omdb.MovieDto;
+import com.maciej.checkflix.domain.omdb.MovieDetailsDto;
 import com.maciej.checkflix.domain.omdb.MovieNameSearchDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -87,6 +87,24 @@ public class OmdbClient {
                 .queryParam("apikey", omdbConfig.getApiKey())
                 .queryParam("s", movieName)
                 .queryParam("type", type)
+                .encode()
+                .build()
+                .toUri();
+    }
+
+    public MovieDetailsDto findMovieDetailsBy(String movieImdbId) {
+        Optional<MovieDetailsDto> movieSearchResult = Optional.ofNullable(
+                restTemplate.getForObject(findMovieDetailsByUri(movieImdbId), MovieDetailsDto.class)
+        );
+
+        return movieSearchResult.orElseGet(MovieDetailsDto::new);
+    }
+
+    private URI findMovieDetailsByUri(String movieImdbId) {
+        return UriComponentsBuilder.fromHttpUrl(omdbConfig.getApiUrl())
+                .queryParam("apikey", omdbConfig.getApiKey())
+                .queryParam("i", movieImdbId)
+                .queryParam("plot", "full")
                 .encode()
                 .build()
                 .toUri();

@@ -1,5 +1,6 @@
 package com.maciej.checkflix.controller;
 
+import com.maciej.checkflix.domain.omdb.MovieDetailsDto;
 import com.maciej.checkflix.domain.omdb.MovieDto;
 import com.maciej.checkflix.service.OmdbService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,10 @@ public class OmdbController {
     @RequestMapping(method = RequestMethod.GET, value = "/types")
     public List<String> getAvailableTypes() {
         return omdbService.getAvailableTypes();
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/movie")
+    public MovieDetailsDto getMovieDetails(@RequestParam String movieImdbId) {
+        return omdbService.findMovieDetailsBy(movieImdbId);
     }
 }

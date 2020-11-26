@@ -1,9 +1,6 @@
 package com.maciej.checkflix.service;
 
-import com.maciej.checkflix.domain.omdb.Movie;
-import com.maciej.checkflix.domain.omdb.MovieDto;
-import com.maciej.checkflix.domain.omdb.MovieSearchResult;
-import com.maciej.checkflix.domain.omdb.Type;
+import com.maciej.checkflix.domain.omdb.*;
 import com.maciej.checkflix.mapper.MovieMapper;
 import com.maciej.checkflix.omdb.OmdbClient;
 import com.maciej.checkflix.repository.MovieRepository;
@@ -37,6 +34,10 @@ public class OmdbService {
 
     @Autowired
     private MovieMapper movieMapper;
+
+    public MovieDetailsDto findMovieDetailsBy(String movieImdbId) {
+        return omdbClient.findMovieDetailsBy(movieImdbId);
+    }
 
     public List<MovieDto> findMovie(String movieName, String year, String type) {
 
