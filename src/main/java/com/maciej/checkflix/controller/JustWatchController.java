@@ -23,13 +23,8 @@ public class JustWatchController {
     @Autowired
     private JustWatchService justWatchService;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/movies")
-    public SearchResultsDto getMoviesBy(@RequestParam String movieName) {
-        return justWatchClient.findMoviesByName(movieName, "en_AU");
-    }
-
     @RequestMapping(method = RequestMethod.GET, value = "/moviess")
-    public SearchResultsDto getMoviesByy(@RequestParam String movieName, @RequestParam String locale) {
+    public SearchResultsDto getMoviesBy(@RequestParam String movieName, @RequestParam String locale) {
         return justWatchService.findMovie(movieName, locale);
     }
 }
