@@ -1,10 +1,11 @@
 package com.maciej.checkflix.service;
 
 import com.maciej.checkflix.domain.omdb.*;
-import com.maciej.checkflix.mapper.MovieMapper;
-import com.maciej.checkflix.omdb.OmdbClient;
-import com.maciej.checkflix.repository.MovieRepository;
-import com.maciej.checkflix.repository.MovieSearchResultsRepository;
+import com.maciej.checkflix.mapper.omdb.MovieMapper;
+import com.maciej.checkflix.clients.OmdbClient;
+import com.maciej.checkflix.repository.omdb.MovieRepository;
+import com.maciej.checkflix.repository.omdb.MovieSearchResultsRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

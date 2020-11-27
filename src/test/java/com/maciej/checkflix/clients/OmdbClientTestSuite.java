@@ -1,10 +1,9 @@
-package com.maciej.checkflix.omdb;
+package com.maciej.checkflix.clients;
 
 
 import com.maciej.checkflix.config.OmdbConfig;
 import com.maciej.checkflix.domain.omdb.MovieDto;
 import com.maciej.checkflix.domain.omdb.MovieNameSearchDto;
-import com.maciej.checkflix.omdb.OmdbClient;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;

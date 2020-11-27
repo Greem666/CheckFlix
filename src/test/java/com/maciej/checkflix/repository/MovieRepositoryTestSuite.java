@@ -2,16 +2,14 @@ package com.maciej.checkflix.repository;
 
 import com.maciej.checkflix.domain.omdb.Movie;
 import com.maciej.checkflix.domain.omdb.Type;
+import com.maciej.checkflix.repository.omdb.MovieRepository;
 import org.junit.*;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 

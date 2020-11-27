@@ -1,4 +1,4 @@
-package com.maciej.checkflix.omdb;
+package com.maciej.checkflix.clients;
 
 import com.maciej.checkflix.config.OmdbConfig;
 import com.maciej.checkflix.domain.omdb.MovieDetailsDto;
@@ -9,8 +9,6 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @RequiredArgsConstructor
