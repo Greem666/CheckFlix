@@ -30,6 +30,8 @@ dependencies {
 
     // TESTING
     implementation 'junit:junit:4.12'
+
+    // H2 DATABASE
     runtimeOnly 'com.h2database:h2'
 
     // MYSQL DATABASE
