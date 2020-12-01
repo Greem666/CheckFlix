@@ -14,7 +14,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ResultDto {
+public class ReviewResultDto {
     @JsonProperty("author")
     public String author;
 

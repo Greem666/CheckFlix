@@ -14,140 +14,140 @@ import lombok.Setter;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SearchResultsDto {
     @JsonProperty("AR")
-    private CountryResultDto Ar;
+    private CountryResultDto ar;
 
     @JsonProperty("AT")
-    private CountryResultDto At;
+    private CountryResultDto at;
 
     @JsonProperty("AU")
-    private CountryResultDto Au;
+    private CountryResultDto au;
 
     @JsonProperty("BE")
-    private CountryResultDto Be;
+    private CountryResultDto be;
 
     @JsonProperty("BR")
-    private CountryResultDto Br;
+    private CountryResultDto br;
 
     @JsonProperty("CA")
-    private CountryResultDto Ca;
+    private CountryResultDto ca;
 
     @JsonProperty("CH")
-    private CountryResultDto Ch;
+    private CountryResultDto ch;
 
     @JsonProperty("CL")
-    private CountryResultDto Cl;
+    private CountryResultDto cl;
 
     @JsonProperty("CO")
-    private CountryResultDto Co;
+    private CountryResultDto co;
 
     @JsonProperty("CZ")
-    private CountryResultDto Cz;
+    private CountryResultDto cz;
 
     @JsonProperty("DE")
-    private CountryResultDto De;
+    private CountryResultDto de;
 
     @JsonProperty("DK")
-    private CountryResultDto Dk;
+    private CountryResultDto dk;
 
     @JsonProperty("EC")
-    private CountryResultDto Ec;
+    private CountryResultDto ec;
 
     @JsonProperty("EE")
-    private CountryResultDto Ee;
+    private CountryResultDto ee;
 
     @JsonProperty("ES")
-    private CountryResultDto Es;
+    private CountryResultDto es;
 
     @JsonProperty("FI")
-    private CountryResultDto Fi;
+    private CountryResultDto fi;
 
     @JsonProperty("FR")
-    private CountryResultDto Fr;
+    private CountryResultDto fr;
 
     @JsonProperty("GB")
-    private CountryResultDto Gb;
+    private CountryResultDto gb;
 
     @JsonProperty("GR")
-    private CountryResultDto Gr;
+    private CountryResultDto gr;
 
     @JsonProperty("HU")
-    private CountryResultDto Hu;
+    private CountryResultDto hu;
 
     @JsonProperty("ID")
-    private CountryResultDto Id;
+    private CountryResultDto id;
 
     @JsonProperty("IE")
-    private CountryResultDto Ie;
+    private CountryResultDto ie;
 
     @JsonProperty("IN")
-    private CountryResultDto In;
+    private CountryResultDto in;
 
     @JsonProperty("IT")
-    private CountryResultDto It;
+    private CountryResultDto it;
 
     @JsonProperty("JP")
-    private CountryResultDto Jp;
+    private CountryResultDto jp;
 
     @JsonProperty("KR")
-    private CountryResultDto Kr;
+    private CountryResultDto kr;
 
     @JsonProperty("LT")
-    private CountryResultDto Lt;
+    private CountryResultDto lt;
 
     @JsonProperty("LV")
-    private CountryResultDto Lv;
+    private CountryResultDto lv;
 
     @JsonProperty("MX")
-    private CountryResultDto Mx;
+    private CountryResultDto mx;
 
     @JsonProperty("MY")
-    private CountryResultDto My;
+    private CountryResultDto my;
 
     @JsonProperty("NL")
-    private CountryResultDto Nl;
+    private CountryResultDto nl;
 
     @JsonProperty("NO")
-    private CountryResultDto No;
+    private CountryResultDto no;
 
     @JsonProperty("NZ")
-    private CountryResultDto Nz;
+    private CountryResultDto nz;
 
     @JsonProperty("PE")
-    private CountryResultDto Pe;
+    private CountryResultDto pe;
 
     @JsonProperty("PH")
-    private CountryResultDto Ph;
+    private CountryResultDto ph;
 
     @JsonProperty("PL")
-    private CountryResultDto Pl;
+    private CountryResultDto pl;
 
     @JsonProperty("PT")
-    private CountryResultDto Pt;
+    private CountryResultDto pt;
 
     @JsonProperty("RO")
-    private CountryResultDto Ro;
+    private CountryResultDto ro;
 
     @JsonProperty("RU")
-    private CountryResultDto Ru;
+    private CountryResultDto ru;
 
     @JsonProperty("SE")
-    private CountryResultDto Se;
+    private CountryResultDto se;
 
     @JsonProperty("SG")
-    private CountryResultDto Sg;
+    private CountryResultDto sg;
 
     @JsonProperty("TH")
-    private CountryResultDto Th;
+    private CountryResultDto th;
 
     @JsonProperty("TR")
-    private CountryResultDto Tr;
+    private CountryResultDto tr;
 
     @JsonProperty("US")
-    private CountryResultDto Us;
+    private CountryResultDto us;
 
     @JsonProperty("VE")
-    private CountryResultDto Ve;
+    private CountryResultDto ve;
 
     @JsonProperty("ZA")
-    private CountryResultDto Za;
+    private CountryResultDto za;
 }

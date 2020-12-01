@@ -2,25 +2,41 @@ package com.maciej.checkflix.domain.watchlist;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.maciej.checkflix.service.util.SupportedCountries;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class ProviderWatchlistDto {
-    @JsonProperty("username")
+@Entity
+@Table(name = "PROVIDERS_WATCHLIST")
+public class ProviderWatchlist {
+    @Id
+    @GeneratedValue
+    @Column(name = "PROVIDERS_WATCHLIST_ID")
+    private Long id;
+
+    @Column(name = "USERNAME")
     private String username;
 
-    @JsonProperty("email")
+    @Column(name = "EMAIL")
     private String email;
 
-    @JsonProperty("imdbId")
+    @Column(name = "IMDB_ID")
     private String imdbId;
+
+    @Column(name = "COUNTRY")
+    private SupportedCountries country;
+
+    public ProviderWatchlist(String username, String email, String imdbId) {
+        this.username = username;
+        this.email = email;
+        this.imdbId = imdbId;
+    }
 }

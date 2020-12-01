@@ -13,10 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -92,11 +89,12 @@ public class OmdbService {
     }
 
     private List<MovieDto> findMoviesInExternalApiBy(String movieName, String year, String type) {
+        // TODO: Nie iterowac po pustym!!!
         List<MovieDto> newMovieDtoList;
         if (year == null) {
             if (type == null) {
                 logger.debug(String.format("Searching for movie by name %s only.", movieName));
-                newMovieDtoList = new ArrayList<>(omdbClient.findMoviesByName(movieName).getMovieDtoList());
+                newMovieDtoList = omdbClient.findMoviesByName(movieName).getMovieDtoList();
             } else {
                 logger.debug(String.format("Searching for movie by name %s and type %s.", movieName, type));
                 newMovieDtoList = omdbClient.findMoviesByNameAndType(movieName, type).getMovieDtoList();
@@ -111,7 +109,7 @@ public class OmdbService {
             }
         }
 
-        return newMovieDtoList == null ? new ArrayList<>() : newMovieDtoList;
+        return Optional.ofNullable(newMovieDtoList).orElse(new ArrayList<>());
     }
 
     private void saveNewSearchResults(MovieSearchResult movieSearchResult, List<MovieDto> newMovieDtoList) {
