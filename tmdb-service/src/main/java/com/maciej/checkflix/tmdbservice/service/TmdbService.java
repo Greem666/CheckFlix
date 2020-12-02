@@ -49,6 +49,7 @@ public class TmdbService {
         }
     }
 
+    //TODO findTmdbCode+queryTmdbApiForId mozna uzyc jako kod w ADAPTERZE!
     private TmdbIdTypeDto findTmdbCode(String imdbId) {
 
         Optional<TmdbIdMap> tmdbIdMapOnRecord = Optional.ofNullable(tmdbIdMapRepository.findByImdbIdEquals(imdbId));
@@ -74,7 +75,7 @@ public class TmdbService {
                 candidateIds.getMovieResults().get(0).getId() : null;
         Integer tvIdCandidate = candidateIds.getTvResults().size() > 0 ?
                 candidateIds.getTvResults().get(0).getId() : null;
-
+        //TODO nie iteruj po obu null`ach! przyklad: Vader: A Star Wars Theory Fan Series
         TmdbIdMap newMapping;
         if (movieIdCandidate != null) {
             newMapping = new TmdbIdMap(
