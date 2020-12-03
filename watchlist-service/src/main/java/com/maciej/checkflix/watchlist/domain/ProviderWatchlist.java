@@ -32,9 +32,13 @@ public class ProviderWatchlist {
     @Column(name = "COUNTRY")
     private SupportedCountries country;
 
-    public ProviderWatchlist(String username, String email, String imdbId) {
+    @Column(name = "PROVIDER_TYPE")
+    private ProviderType providerType;
+
+    public ProviderWatchlist(String username, String email, String imdbId, ProviderType providerType) {
         this.username = username;
         this.email = email;
         this.imdbId = imdbId;
+        this.providerType = providerType;
     }
 }

@@ -30,4 +30,12 @@ public class ProviderWatchlistDto {
 
     @JsonProperty("country")
     private String country;
+
+    @JsonProperty("providerType")
+    private String providerType;
+
+    @Override
+    public String toString() {
+        return movieName + " for " + providerType + " - " + username + " in " + country;
+    }
 }

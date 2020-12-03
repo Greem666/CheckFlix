@@ -1,5 +1,6 @@
 package com.maciej.checkflix.watchlist.mapper;
 
+import com.maciej.checkflix.watchlist.domain.ProviderType;
 import com.maciej.checkflix.watchlist.domain.ProviderWatchlist;
 import com.maciej.checkflix.watchlist.domain.ProviderWatchlistDto;
 import com.maciej.checkflix.watchlist.service.TmdbService;
@@ -23,7 +24,8 @@ public class ProviderWatchlistMapper {
                 providerWatchlistDto.getUsername(),
                 providerWatchlistDto.getEmail(),
                 providerWatchlistDto.getImdbId(),
-                SupportedCountries.from(providerWatchlistDto.getCountry())
+                SupportedCountries.from(providerWatchlistDto.getCountry()),
+                ProviderType.from(providerWatchlistDto.getProviderType())
         );
     }
 
@@ -37,7 +39,8 @@ public class ProviderWatchlistMapper {
                         Optional.ofNullable(providerWatchlist.getImdbId()).orElse("-1")),
                 Optional.ofNullable(providerWatchlist.getCountry())
                         .map(SupportedCountries::getCountryName)
-                        .orElse(SupportedCountries.DEFAULT.getCountryName())
+                        .orElse(SupportedCountries.DEFAULT.getCountryName()),
+                providerWatchlist.getProviderType().getTmdbName()
         );
     }
 
