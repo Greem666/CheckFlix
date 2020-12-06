@@ -15,15 +15,17 @@ public class QuickChartWordCloudPayload {
         private String format = "png";
         private int width = 600;
         private int height = 600;
-        private int fontScale = 5;
-        private String scale = "linear";
-        private List<String> colors = Arrays.asList("rgba(17, 164, 14, 1)", "rgba(21, 202, 18, 1)", "rgba(107, 242, 105, 1)");
-        private int maxNumWords = 10;
+        private int fontScale = 10;
+        private String scale = "log";
+        private List<String> colors;
+        private int maxNumWords = 25;
         private boolean removeStopwords = true;
-        private int minWordLength = 4;
+        private String language = "english";
+        private int minWordLength = 2;
         private String text;
 
-    public QuickChartWordCloudPayload(String text) {
+    public QuickChartWordCloudPayload(List<String> colors, String text) {
+        this.colors = colors;
         this.text = text;
     }
 }

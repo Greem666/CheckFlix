@@ -60,6 +60,7 @@ public class MovieRepositoryTestSuite {
     @Test
     public void shouldCreateAndDeleteMovie() {
         // Given
+        int preTestEntryCount = ((List<Movie>)movieRepository.findAll()).size();
         Movie newMovie = new Movie(
                 "Test title 4", "Test year 4", "Test imdbID 4", Type.MOVIE, "Test poster 4");
 
@@ -68,7 +69,7 @@ public class MovieRepositoryTestSuite {
         Optional<Movie> readMovie = movieRepository.findById(newMovie.getId());
 
         // Then
-        Assert.assertEquals(4, ((List<Movie>)movieRepository.findAll()).size());
+        Assert.assertEquals(preTestEntryCount+1, ((List<Movie>)movieRepository.findAll()).size());
         Assert.assertTrue(readMovie.isPresent());
         assertEquality(newMovie, readMovie.get());
 
