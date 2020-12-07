@@ -20,8 +20,8 @@ public class AuthorDetailsDto {
     public String username;
 
     @JsonProperty("avatar_path")
-    public Object avatarPath;
+    public String avatarPath;
 
     @JsonProperty("rating")
-    public Object rating;
+    public double rating;
 }
