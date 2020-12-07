@@ -44,10 +44,15 @@ public class ImdbReviewScraper {
 
         Optional<HtmlButton> loadMoreButton = Optional.ofNullable(page.getFirstByXPath(XPATH_LOAD_MORE_BUTTON));
         int reviewsOnRecord = Integer.parseInt(
-                ((HtmlSpan)page.getFirstByXPath(XPATH_IMDB_TOTAL_REVIEWS_SPAN)).asText()
-                        .split(" ")[0]
-                        .replace(",", "")
+                Optional.ofNullable(page.getFirstByXPath(XPATH_IMDB_TOTAL_REVIEWS_SPAN))
+                        .map(o -> ((HtmlSpan)o).asText().split(" ")[0].replace(",", ""))
+                        .orElse("0")
         );
+//        int reviewsOnRecord = Integer.parseInt(
+//                ((HtmlSpan)page.getFirstByXPath(XPATH_IMDB_TOTAL_REVIEWS_SPAN)).asText()
+//                        .split(" ")[0]
+//                        .replace(",", "")
+//        );
 
         if (loadMoreButton.isPresent()) {
             int reviewsCounter = 0;

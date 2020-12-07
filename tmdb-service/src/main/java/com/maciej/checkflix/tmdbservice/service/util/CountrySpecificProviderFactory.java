@@ -13,7 +13,7 @@ public class CountrySpecificProviderFactory {
     @Autowired
     private TmdbClient tmdbClient;
 
-    public final CountryResultDto findLocalProvider(final SearchResultsDto allResults, final String countryCode) {
+    public CountryResultDto findLocalProvider(final SearchResultsDto allResults, final String countryCode) {
         SupportedCountries country = Optional.ofNullable(
                 SupportedCountries.from(countryCode)).orElse(SupportedCountries.DEFAULT);
         CountryResultDto countryResult;

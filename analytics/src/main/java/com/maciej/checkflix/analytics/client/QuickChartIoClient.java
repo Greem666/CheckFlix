@@ -72,7 +72,7 @@ public class QuickChartIoClient {
         return restTemplate.postForObject(getReviewRatingsPieChartUri(), request, byte[].class);
     }
 
-    public byte[] getReviewRatingsDistribution(ArrayList<String> labels, ArrayList<Integer> dataPoints) {
+    public byte[] getReviewRatingsDistribution(List<String> labels, List<Integer> dataPoints) {
         Datasets dataset = new Datasets(dataPoints, "Ratings", DISTRIBUTION_CHART_COLORS);
         Data data = new Data(labels, Collections.singletonList(dataset));
         Chart chart = new Chart("bar", data);
