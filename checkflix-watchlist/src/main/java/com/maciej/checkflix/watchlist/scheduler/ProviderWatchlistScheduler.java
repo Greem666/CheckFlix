@@ -12,6 +12,9 @@ import com.maciej.checkflix.watchlist.service.WatchlistEmailService;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.mail.MailAuthenticationException;
+import org.springframework.mail.MailException;
+import org.springframework.mail.MailSendException;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -30,7 +33,7 @@ public class ProviderWatchlistScheduler {
     private final ProviderWatchlistService providerWatchlistService;
     private final ProviderWatchlistMapper providerWatchlistMapper;
 
-    @Scheduled(cron = "0 */12 * * * ?")
+    @Scheduled(cron = "0 */15 * * * ?")
     public void notifyAboutProviderAvailabilityChange() {
         logger.info("Starting a watchlist items sweep...");
         List<ProviderWatchlist> allTickets = providerWatchlistRepository.findAll();
@@ -41,12 +44,17 @@ public class ProviderWatchlistScheduler {
                     ticketDto.getImdbId(), ticketDto.getCountry(), ticketDto.getProviderType());
 
             if (availableProviders.size() > 0) {
-                logger.info("New providers found for " + ticketDto.toString());
-                watchlistEmailService.send(constructMail(availableProviders, ticketDto));
+                try {
+                    logger.info("New providers found for " + ticketDto.toString());
+                    watchlistEmailService.send(constructMail(availableProviders, ticketDto));
 
-                logger.info("Deleting " + ticketDto.toString() + " from the watchlist");
-                // delete item from watchlist
-                providerWatchlistRepository.deleteById(ticket.getId());
+                    logger.info("Deleting " + ticketDto.toString() + " from the watchlist");
+                    // delete item from watchlist
+                    providerWatchlistRepository.deleteById(ticket.getId());
+                } catch (MailSendException e) {
+                    logger.error("Failed to send email for " + ticketDto.toString() + ". Entry will be kept on the " +
+                            "watchlist until email is send successfully...");
+                }
             }
         }
     }

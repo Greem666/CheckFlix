@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.mail.MailException;
+import org.springframework.mail.MailSendException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,8 @@ public class WatchlistEmailService {
             javaMailSender.send(createMailMessage(mail));
             LOGGER.info("Email has been sent.");
         } catch (MailException e) {
-            LOGGER.error("Failed to process email sending: ", e.getMessage(), e);
+            LOGGER.error("Failed to process email sending: ", e.getCause());
+            throw new MailSendException("Mail was not sent.");
         }
     }
 
