@@ -39,9 +39,8 @@ public class TmdbService {
         logger.info(String.format("Grabbing providers for ImdbID: %s in %s", imdbId, countryName));
         TmdbIdTypeDto tmdbIdTypeDto = convertImdbIdToTmdbId(imdbId);
 
-        SearchResultsDto globalResults = tmdbClient.getProviders(tmdbIdTypeDto.getTmdbId(), tmdbIdTypeDto.getType());
-
         if (tmdbIdTypeDto.getTmdbId() != null) {
+            SearchResultsDto globalResults = tmdbClient.getProviders(tmdbIdTypeDto.getTmdbId(), tmdbIdTypeDto.getType());
             return TmdbLinkFixer.fixLogoLinks(
                     countrySpecificProviderFactory.findLocalProvider(globalResults, countryName));
         } else {
@@ -58,9 +57,12 @@ public class TmdbService {
         logger.info(String.format("Grabbing reviews for imdbID: %s", imdbId));
         TmdbIdTypeDto tmdbId = convertImdbIdToTmdbId(imdbId);
 
-        List<ReviewResultDto> allReviews = tmdbClient.getReviews(tmdbId.getTmdbId(), tmdbId.getType());
+        if (tmdbId.getTmdbId() != null) {
+            List<ReviewResultDto> allReviews = tmdbClient.getReviews(tmdbId.getTmdbId(), tmdbId.getType());
+            return Optional.ofNullable(allReviews).orElse(new ArrayList<>());
+        }
 
-        return Optional.ofNullable(allReviews).orElse(new ArrayList<>());
+        return new ArrayList<>();
     }
 
     public String findNameBy(String imdbId) {

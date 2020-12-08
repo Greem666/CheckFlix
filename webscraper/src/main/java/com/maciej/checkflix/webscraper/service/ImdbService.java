@@ -76,7 +76,14 @@ public class ImdbService {
         List<ImdbReviewDto> filteredNewReviews = newlyScrapedReviews.stream()  // ImdbReview entity limits it at 20000
                 .filter(e -> e.getReview().length() < 20000)
                 .collect(Collectors.toList());
-        imdbReviewRepository.saveAll(imdbReviewMapper.mapToImdbReviewList(filteredNewReviews, imdbId));
+        List<ImdbReview> newReviewCandidates = imdbReviewMapper.mapToImdbReviewList(filteredNewReviews, imdbId);
+        List<ImdbReview> reviewsOnRecord = imdbReviewRepository.findByImdbId(imdbId);
+
+        for (ImdbReview newReview: newReviewCandidates) {
+            if (!reviewsOnRecord.contains(newReviewCandidates)) {
+                imdbReviewRepository.save(newReview);
+            }
+        }
     }
 
 

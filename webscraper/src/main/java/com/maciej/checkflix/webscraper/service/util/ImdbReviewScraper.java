@@ -56,7 +56,7 @@ public class ImdbReviewScraper {
 
         if (loadMoreButton.isPresent()) {
             int reviewsCounter = 0;
-            while (reviewsCounter <= REQUIRED_REVIEW_COUNT || reviewsCounter >= reviewsOnRecord) {
+            while (reviewsCounter <= REQUIRED_REVIEW_COUNT && reviewsCounter < reviewsOnRecord) {
                 //TODO Not ideal - takes a LONG time to scrape these reviews off IMDB website, and tends to generate
                 // duplicate entries(???); Taken care of with use of HashSet later on to collate the data, but ends up
                 // not producing required REQUIRED_REVIEW_COUNT because of all duplicates removal.

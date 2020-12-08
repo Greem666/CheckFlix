@@ -24,7 +24,7 @@ public class TmdbIdMap {
     private String imdbId;
 
     @Column(name = "TMDB_ID")
-    private int tmdbId;
+    private Integer tmdbId;
 
     @Column(name = "TITLE")
     private String title;

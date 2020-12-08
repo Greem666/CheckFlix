@@ -34,16 +34,19 @@ public class QuickChartIoClient {
 
     public byte[] getWordCloudForPositiveText(String text) {
         QuickChartWordCloudPayload payload = new QuickChartWordCloudPayload(POSITIVE_COLORS, text);
+        payload.setScale("sqrt");
         return getWordCloudForPayload(payload);
     }
 
     public byte[] getWordCloudForNeutralText(String text) {
         QuickChartWordCloudPayload payload = new QuickChartWordCloudPayload(NEUTRAL_COLORS, text);
+        payload.setScale("sqrt");
         return getWordCloudForPayload(payload);
     }
 
     public byte[] getWordCloudForNegativeText(String text) {
         QuickChartWordCloudPayload payload = new QuickChartWordCloudPayload(NEGATIVE_COLORS, text);
+        payload.setScale("sqrt");
         return getWordCloudForPayload(payload);
     }
 

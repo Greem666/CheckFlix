@@ -42,7 +42,7 @@ public class TmdbIdMapperTestSuite {
 
         // Then
         Assert.assertEquals("testImdbId", result.getImdbId());
-        Assert.assertEquals(1, result.getTmdbId());
+        Assert.assertEquals(java.util.Optional.of(1), result.getTmdbId());
         Assert.assertEquals("testTitleMovie", result.getTitle());
         Assert.assertEquals(Type.MOVIE, result.getType());
 
@@ -64,7 +64,7 @@ public class TmdbIdMapperTestSuite {
 
         // Then
         Assert.assertEquals("testImdbId", result.getImdbId());
-        Assert.assertEquals(2, result.getTmdbId());
+        Assert.assertEquals(java.util.Optional.of(2), result.getTmdbId());
         Assert.assertEquals("testNameTv", result.getTitle());
         Assert.assertEquals(Type.SERIES, result.getType());
 
